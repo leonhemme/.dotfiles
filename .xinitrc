@@ -41,6 +41,6 @@ xinput set-prop "Logitech Gaming Mouse G502" 294 1 &
 xinput set-prop "Logitech Gaming Mouse G502" 297 0, 1 &
 flameshot &
 picom &
-redshift -O 2400 &
+redshift -O 2800 &
 nitrogen --restore &
 exec qtile start

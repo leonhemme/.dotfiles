@@ -1,5 +1,6 @@
 {
     "workbench.iconTheme": "material-icon-theme",
     "editor.fontFamily": "'JetBrains Mono', 'JetBrains Mono', monospace",
-    "window.zoomLevel": 2
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "Darcula"
 }

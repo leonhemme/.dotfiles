@@ -171,8 +171,8 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.Systray(),
-                widget.Clock(format='%A, %d.%m.%Y %H:%M'),
-                widget.QuickExit(),
+                widget.Battery(),
+                widget.Clock(format='%A, %Y-%m-%d %H:%M:%S')
             ],
             32,
         ),

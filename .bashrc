@@ -78,6 +78,11 @@ up () {
 # dotfiles repo
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 
+# adjust backlight brightness on laptop
+alias brightness-high='sudo echo 255 > /sys/class/backlight/amdgpu_bl0/brightness'
+alias brightness-medium='sudo echo 128 > /sys/class/backlight/amdgpu_bl0/brightness'
+alias brightness-low='sudo echo 64 > /sys/class/backlight/amdgpu_bl0/brightness'
+
 # ls
 alias ls='ls -alh --color=always --group-directories-first'     # preferred listing
 alias lstree='ls -aT --color=always --group-directories-first'  # tree listing
@@ -103,7 +108,7 @@ alias ln='ln -i'
 # mkdir with parents
 alias mkdir='mkdir -pv'
 
-# Powerline config
+# powerline config
 if [ -f $HOME/.local/lib/python3.10/site-packages/powerline/bindings/bash/powerline.sh ]; then
   $HOME/.local/bin/powerline-daemon -q
   POWERLINE_BASH_CONTINUATION=1
@@ -111,6 +116,10 @@ if [ -f $HOME/.local/lib/python3.10/site-packages/powerline/bindings/bash/powerl
   source $HOME/.local/lib/python3.10/site-packages/powerline/bindings/bash/powerline.sh
 fi
 
+### STARSHIP PROMPT ###
+eval "$(starship init bash)"
+
 ### RUN PREFERRED SHELL AS INTERACTIVE (ON TOP OF BASH) ###
 # use fish as interactive shell
 # exec fish
+

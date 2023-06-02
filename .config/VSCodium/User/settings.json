@@ -1,6 +1,7 @@
 {
-    "workbench.iconTheme": "material-icon-theme",
-    "editor.fontFamily": "'JetBrains Mono', 'JetBrains Mono', monospace",
     "window.zoomLevel": 1,
-    "workbench.colorTheme": "Darcula"
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.productIconTheme": "material-product-icons",
+    "editor.fontFamily": "'JetBrains Mono Nerd Font', 'monospace', monospace"
 }

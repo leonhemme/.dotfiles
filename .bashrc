@@ -79,13 +79,13 @@ up () {
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 
 # adjust backlight brightness on laptop
-alias brightness-high='sudo echo 255 > /sys/class/backlight/amdgpu_bl0/brightness'
-alias brightness-medium='sudo echo 128 > /sys/class/backlight/amdgpu_bl0/brightness'
-alias brightness-low='sudo echo 64 > /sys/class/backlight/amdgpu_bl0/brightness'
+alias brightness-high="sudo sh -c 'echo 255 > /sys/class/backlight/amdgpu_bl0/brightness'"
+alias brightness-medium="sudo sh -c 'echo 96 > /sys/class/backlight/amdgpu_bl0/brightness'"
+alias brightness-low="sudo sh -c 'echo 32 > /sys/class/backlight/amdgpu_bl0/brightness'"
 
 # ls
-alias ls='ls -alh --color=always --group-directories-first'     # preferred listing
-alias lstree='ls -aT --color=always --group-directories-first'  # tree listing
+alias ls='exa -alh --color=always --group-directories-first'     # preferred listing
+alias lstree='exa -aT --color=always --group-directories-first'  # tree listing
 
 # pacman and yay
 alias pac='sudo pacman'                           # short form

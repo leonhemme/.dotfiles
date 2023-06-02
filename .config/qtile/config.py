@@ -152,7 +152,7 @@ layouts = [
 widget_defaults = dict(
     font='sans',
     fontsize=12,
-    padding=3,
+    padding=5,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -171,6 +171,9 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.Systray(),
+                widget.CPUGraph(),
+                widget.MemoryGraph(),
+                widget.Volume(update_interval=0.2, emoji=True),
                 widget.Battery(),
                 widget.Clock(format='%A, %Y-%m-%d %H:%M:%S')
             ],

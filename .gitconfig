@@ -1,0 +1,15 @@
+[core]
+	ignorecase = true
+[user]
+	email = leon.hemme@gmail.com
+	name = Leon Hemme
+[init]
+	defaultBranch = main
+[log]
+	decorate = auto
+[push]
+	default = current
+[remote]
+	pushDefault = origin
+[credential]
+	helper = cache

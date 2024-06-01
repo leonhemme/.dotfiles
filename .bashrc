@@ -22,12 +22,13 @@ if [ -d "$HOME/Applications" ] ;
 fi
 
 
-### IGNORE CASE FOR TAB COMPLETIONS ###
+# Ignore case for tab completion
 bind "set completion-ignore-case on"
 
 
-### ARCHIVE EXTRACTION ###
-# usage: ex <file>
+### FUNCTIONS ###
+# Archive extraction
+# Usage: ex <file>
 ex ()
 {
   if [ -f "$1" ] ; then
@@ -46,21 +47,19 @@ ex ()
       *.deb)       ar x $1      ;;
       *.tar.xz)    tar xf $1    ;;
       *.tar.zst)   unzstd $1    ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
+      *)           echo "'$1' cannot be extracted via ex()." ;;
     esac
   else
-    echo "'$1' is not a valid file"
+    echo "'$1' is not a valid file."
   fi
 }
 
-
-### ALIASES ###
-# navigation with cd
+# Navigation with cd
 up () {
   local d=""
   local limit="$1"
 
-  # default to limit of 1
+  # Default to limit of 1
   if [ -z "$limit" ] || [ "$limit" -le 0 ]; then
     limit=1
   fi
@@ -69,16 +68,17 @@ up () {
     d="../$d"
   done
 
-  # execute cd, show error if cd fails
+  # Execute cd, show error if cd fails.
   if ! cd "$d"; then
     echo "Couldn't go up $limit directories.";
   fi
 }
 
-# dotfiles repo
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+### ALIASES ###
+# Dotfiles repo
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
-# adjust backlight brightness on laptop
+# Adjust backlight brightness on laptop
 alias brightness-high="sudo sh -c 'echo 255 > /sys/class/backlight/amdgpu_bl0/brightness'"
 alias brightness-medium="sudo sh -c 'echo 96 > /sys/class/backlight/amdgpu_bl0/brightness'"
 alias brightness-low="sudo sh -c 'echo 32 > /sys/class/backlight/amdgpu_bl0/brightness'"
@@ -87,39 +87,38 @@ alias brightness-low="sudo sh -c 'echo 32 > /sys/class/backlight/amdgpu_bl0/brig
 alias ls='exa -alh --color=always --group-directories-first'     # preferred listing
 alias lstree='exa -aT --color=always --group-directories-first'  # tree listing
 
-# pacman and yay
-alias pac='sudo pacman'                           # short form
-alias pacsyu='sudo pacman -Syyu'                  # update only standard pkgs
-alias yaysua='yay -Sua --noconfirm'               # update only AUR pkgs (yay)
-alias yaysyu='yay -Syu --noconfirm'               # update standard pkgs and AUR pkgs (yay)
-alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'  # remove orphaned packages
+alias pac='sudo pacman'
+# Update only standard packages
+alias pacsyu='sudo pacman -Syyu'
+# Update only AUR packages
+alias yaysua='yay -Sua --noconfirm'alias yaysyu='yay -Syu --noconfirm'               	# update standard pkgs and AUR pkgs (yay)
+alias paccleanup='sudo pacman -Rns $(pacman -Qtdq)'  	# remove orphaned packages
 
-# colorize grep output (good for log files)
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-# confirm before overwriting something
+# Confirm before overwriting something
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 alias ln='ln -i'
 
-# mkdir with parents
+# Create directories with parents
 alias mkdir='mkdir -pv'
 
-# powerline config
-if [ -f $HOME/.local/lib/python3.10/site-packages/powerline/bindings/bash/powerline.sh ]; then
-  $HOME/.local/bin/powerline-daemon -q
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
-  source $HOME/.local/lib/python3.10/site-packages/powerline/bindings/bash/powerline.sh
-fi
+# Powerline config
+#if [ -f $HOME/.local/lib/python3.10/site-packages/powerline/bindings/bash/powerline.sh ]; then
+#  $HOME/.local/bin/powerline-daemon -q
+#  POWERLINE_BASH_CONTINUATION=1
+#  POWERLINE_BASH_SELECT=1
+#  source $HOME/.local/lib/python3.10/site-packages/powerline/bindings/bash/powerline.sh
+#fi
 
-### STARSHIP PROMPT ###
+### RUN SOME COOL PROGRAMS ###
+#Starship prompt
 eval "$(starship init bash)"
 
-### RUN PREFERRED SHELL AS INTERACTIVE (ON TOP OF BASH) ###
-# use fish as interactive shell
+# Run preferred shell as interactive (on top of bash)
 # exec fish
 

@@ -1,5 +1,7 @@
 /**
 !/.**
-.dotfiles
-.cache
-.mozilla
+.cache/
+.dotfiles/
+.mozilla/
+.ssh/
+.bash_history

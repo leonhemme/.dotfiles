@@ -1,40 +1,10 @@
+import = ["~/.config/alacritty/themes/tokyo-night.toml"]
+
 [env]
 TERM = "xterm-256color"
 
 [colors]
 draw_bold_text_with_bright_colors = true
-
-[colors.bright]
-black = "#4d4d4d"
-blue = "#caa9fa"
-cyan = "#9aedfe"
-green = "#5af78e"
-magenta = "#ff92d0"
-red = "#ff6e67"
-white = "#e6e6e6"
-yellow = "#f4f99d"
-
-[colors.cursor]
-cursor = "CellForeground"
-text = "CellBackground"
-
-[colors.normal]
-black = "#000000"
-blue = "#bd93f9"
-cyan = "#8be9fd"
-green = "#50fa7b"
-magenta = "#ff79c6"
-red = "#ff5555"
-white = "#bfbfbf"
-yellow = "#f1fa8c"
-
-[colors.primary]
-background = "#282a36"
-foreground = "#f8f8f2"
-
-[colors.selection]
-background = "#44475a"
-text = "CellForeground"
 
 [font]
 size = 12.0
@@ -57,7 +27,7 @@ style = "Regular"
 
 [font.offset]
 x = 0
-y = 1
+y = 0
 
 [[keyboard.bindings]]
 action = "Paste"
@@ -148,7 +118,7 @@ history = 5000
 
 [window]
 dynamic_padding = false
-opacity = 1.0
+opacity = 0.9
 title = "Alacritty"
 
 [window.class]
@@ -156,5 +126,5 @@ general = "Alacritty"
 instance = "Alacritty"
 
 [window.padding]
-x = 6
-y = 6
+x = 5
+y = 5

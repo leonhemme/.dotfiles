@@ -18,10 +18,19 @@ if [ -d "$HOME/Applications" ]; then
     PATH="$HOME/Applications:$PATH"
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-. "$HOME/.cargo/env"
+if [ -d "$HOME/.nvm" ]; then
+    export NVM_DIR="$HOME/.nvm"
+    if [ -s "$NVM_DIR/nvm.sh" ]; then
+        . "$NVM_DIR/nvm.sh"
+    fi
+    if [ -s "$NVM_DIR/bash_completion" ]; then
+        . "$NVM_DIR/bash_completion"
+    fi
+fi
+
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
 
 ### GENERAL OPTIONS ###
 bind "set completion-ignore-case on"
@@ -89,11 +98,11 @@ alias pac='sudo pacman'
 # Update only standard packages
 alias pacsyu='sudo pacman -Syyu'
 # Update only AUR packages
-alias yaysua='yay -Sua --noconfirm'
+alias yaysua='yay -Sua'
 # Update standard pkgs and AUR pkgs (yay)
-alias yaysyu='yay -Syu --noconfirm'
+alias yaysyu='yay -Syu'
 # Remove orphaned packages
-alias paccleanup='sudo pacman -Rns $(pacman -Qtdq)'
+alias pacclean='sudo pacman -Rns $(pacman -Qtdq)'
 
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'

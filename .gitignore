@@ -1,6 +1,9 @@
-.cache/
-.dotfiles/
-.mozilla/
-.ssh/
+**/
 .bash_history
-.local/
+.config/discord/
+.config/VSCodium/
+.config/BraveSoftware/
+.config/nvim/lazy-lock.json
+.config/nvim/lazyvim.json
+
+!.config/

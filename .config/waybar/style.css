@@ -5,6 +5,7 @@
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: JetBrainsMonoNLNerdFont, Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
+    color: white;
 }
 
 window#waybar {
@@ -58,7 +59,6 @@ button:hover {
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
 }
 
 #workspaces button:hover {
@@ -97,7 +97,6 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
     padding: 0 10px;
-    color: #ffffff;
 }
 
 #window,
@@ -115,18 +114,12 @@ button:hover {
     margin-right: 0;
 }
 
-#clock {
-    background-color: #64727D;
-}
+#clock {}
 
-#battery {
-    background-color: #ffffff;
-    color: #000000;
-}
+#battery {}
 
 #battery.charging,
 #battery.plugged {
-    color: #ffffff;
     background-color: #26A65B;
 }
 
@@ -154,39 +147,27 @@ button:hover {
 
 #power-profiles-daemon.performance {
     background-color: #f53c3c;
-    color: #ffffff;
 }
 
 #power-profiles-daemon.balanced {
     background-color: #2980b9;
-    color: #ffffff;
 }
 
 #power-profiles-daemon.power-saver {
     background-color: #2ecc71;
-    color: #000000;
 }
 
 label:focus {
     background-color: #000000;
 }
 
-#cpu {
-    background-color: #2ecc71;
-    color: #000000;
-}
+#cpu {}
 
-#memory {
-    background-color: #9b59b6;
-}
+#memory {}
 
-#disk {
-    background-color: #964B00;
-}
+#disk {}
 
-#backlight {
-    background-color: #90b1b1;
-}
+#backlight {}
 
 #network {
     background-color: #2980b9;
@@ -196,10 +177,7 @@ label:focus {
     background-color: #f53c3c;
 }
 
-#pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
-}
+#pulseaudio {}
 
 #pulseaudio.muted {
     background-color: #90b1b1;
@@ -208,7 +186,6 @@ label:focus {
 
 #wireplumber {
     background-color: #fff0f5;
-    color: #000000;
 }
 
 #wireplumber.muted {
@@ -229,17 +206,13 @@ label:focus {
     background-color: #ffa000;
 }
 
-#temperature {
-    background-color: #f0932b;
-}
+#temperature {}
 
 #temperature.critical {
     background-color: #eb4d4b;
 }
 
-#tray {
-    background-color: #2980b9;
-}
+#tray {}
 
 #tray>.passive {
     -gtk-icon-effect: dim;
@@ -277,16 +250,12 @@ label:focus {
 }
 
 #language {
-    background: #00b093;
-    color: #740864;
     padding: 0 5px;
     margin: 0 5px;
     min-width: 16px;
 }
 
 #keyboard-state {
-    background: #97e1ad;
-    color: #000000;
     padding: 0 0px;
     margin: 0 5px;
     min-width: 16px;
@@ -314,7 +283,6 @@ label:focus {
 
 #privacy-item {
     padding: 0 5px;
-    color: white;
 }
 
 #privacy-item.screenshare {

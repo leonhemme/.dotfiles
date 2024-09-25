@@ -14,6 +14,7 @@
         "mpd"
     ],
     "modules-right": [
+        "tray",
         //"idle_inhibitor",
         "pulseaudio",
         //"network",
@@ -26,8 +27,7 @@
         "hyprland/language",
         "battery",
         "battery#bat2",
-        "clock",
-        "tray"
+        "clock"
     ],
     // Modules configuration
     // "sway/workspaces": {

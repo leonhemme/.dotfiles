@@ -36,9 +36,4 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-nm-applet &
-picom &
-flameshot &
-redshift -O 2800 &
-nitrogen --restore &
-exec qtile start
+exec i3

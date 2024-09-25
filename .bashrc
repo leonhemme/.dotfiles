@@ -5,84 +5,100 @@
 
 PS1='[\u@\h \W]\$ '
 
-### PATH ###
+### Path ###
 if [ -d "$HOME/.bin" ]; then
-    PATH="$HOME/.bin:$PATH"
+	PATH="$HOME/.bin:$PATH"
 fi
 
 if [ -d "$HOME/.local/bin" ]; then
-    PATH="$HOME/.local/bin:$PATH"
+	PATH="$HOME/.local/bin:$PATH"
 fi
 
 if [ -d "$HOME/Applications" ]; then
-    PATH="$HOME/Applications:$PATH"
+	PATH="$HOME/Applications:$PATH"
 fi
 
 if [ -d "$HOME/.nvm" ]; then
-    export NVM_DIR="$HOME/.nvm"
-    if [ -s "$NVM_DIR/nvm.sh" ]; then
-        . "$NVM_DIR/nvm.sh"
-    fi
-    if [ -s "$NVM_DIR/bash_completion" ]; then
-        . "$NVM_DIR/bash_completion"
-    fi
+	export NVM_DIR="$HOME/.nvm"
+	if [ -s "$NVM_DIR/nvm.sh" ]; then
+		. "$NVM_DIR/nvm.sh"
+	fi
+	if [ -s "$NVM_DIR/bash_completion" ]; then
+		. "$NVM_DIR/bash_completion"
+	fi
 fi
 
 if [ -f "$HOME/.cargo/env" ]; then
-    . "$HOME/.cargo/env"
+	. "$HOME/.cargo/env"
 fi
 
-### GENERAL OPTIONS ###
 bind "set completion-ignore-case on"
 
-### ARCHIVE EXTRACTION ###
-# usage: ex <file>
-ex() {
-    if [ -f "$1" ]; then
-        case $1 in
-        *.tar.bz2) tar xjf $1 ;;
-        *.tar.gz) tar xzf $1 ;;
-        *.bz2) bunzip2 $1 ;;
-        *.rar) unrar x $1 ;;
-        *.gz) gunzip $1 ;;
-        *.tar) tar xf $1 ;;
-        *.tbz2) tar xjf $1 ;;
-        *.tgz) tar xzf $1 ;;
-        *.zip) unzip $1 ;;
-        *.Z) uncompress $1 ;;
-        *.7z) 7z x $1 ;;
-        *.deb) ar x $1 ;;
-        *.tar.xz) tar xf $1 ;;
-        *.tar.zst) unzstd $1 ;;
-        *) echo "'$1' cannot be extracted via ex()" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
+# Archive extraction
+extr() {
+	if [ -f "$1" ]; then
+		# Set extraction output path, default to current directory if not provided
+		local dest="${2:-.}"
+
+		local archive_name=$(basename "$1")
+		local folder_name="${archive_name%.*}"
+		local target_dir="$dest/$folder_name"
+		if [ ! -d "$target_dir" ]; then
+			mkdir -p "$target_dir"
+		fi
+
+		case $1 in
+		*.tar.bz2) tar xjf "$1" -C "$target_dir" ;;
+		*.tar.gz) tar xzf "$1" -C "$target_dir" ;;
+		*.bz2)
+			local decompressed_file="${1%.bz2}"
+			bunzip2 -c "$1" >"$target_dir/$(basename "$decompressed_file")"
+			;;
+		*.rar) unrar x "$1" "$target_dir" ;;
+		*.gz)
+			local decompressed_file="${1%.gz}"
+			gunzip -c "$1" >"$target_dir/$(basename "$decompressed_file")"
+			;;
+		*.tar) tar xf "$1" -C "$target_dir" ;;
+		*.tbz2) tar xjf "$1" -C "$target_dir" ;;
+		*.tgz) tar xzf "$1" -C "$target_dir" ;;
+		*.zip) unzip "$1" -d "$target_dir" ;;
+		*.Z)
+			local decompressed_file="${1%.Z}"
+			uncompress -c "$1" >"$target_dir/$(basename "$decompressed_file")"
+			;;
+		*.7z) 7z x "$1" -o"$target_dir" ;;
+		*.deb) ar x "$1" -C "$target_dir" ;;
+		*.tar.xz) tar xf "$1" -C "$target_dir" ;;
+		*.tar.zst) unzstd -o "$target_dir" "$1" ;;
+		*) echo "'$1' cannot be extracted via extr()" ;;
+		esac
+	else
+		echo "'$1' is not a valid file"
+	fi
 }
 
-### ALIASES ###
-# navigation with cd
+# Navigation with cd
 up() {
-    local d=""
-    local limit="$1"
+	local d=""
+	local limit="$1"
 
-    # default to limit of 1
-    if [ -z "$limit" ] || [ "$limit" -le 0 ]; then
-        limit=1
-    fi
+	# default to limit of 1
+	if [ -z "$limit" ] || [ "$limit" -le 0 ]; then
+		limit=1
+	fi
 
-    for ((i = 1; i <= limit; i++)); do
-        d="../$d"
-    done
+	for ((i = 1; i <= limit; i++)); do
+		d="../$d"
+	done
 
-    # Execute cd, show error if cd fails.
-    if ! cd "$d"; then
-        echo "Couldn't go up $limit directories."
-    fi
+	# Execute cd, show error if cd fails.
+	if ! cd "$d"; then
+		echo "Couldn't go up $limit directories."
+	fi
 }
 
-### ALIASES ###
+### Aliases ###
 # Dotfiles repo
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
@@ -121,7 +137,3 @@ alias vim='nvim'
 
 ### Start some cool stuff
 eval "$(starship init bash)"
-
-if command -v tmux &>/dev/null && [ -z "$TMUX" ]; then
-    tmux attach-session -t default || tmux new-session -s default
-fi

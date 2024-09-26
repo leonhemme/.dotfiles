@@ -15,16 +15,12 @@
     ],
     "modules-right": [
         "tray",
-        //"idle_inhibitor",
         "pulseaudio",
-        //"network",
         "power-profiles-daemon",
         "cpu",
         "memory",
         "temperature",
         "backlight",
-        //"keyboard-state",
-        "hyprland/language",
         "battery",
         "battery#bat2",
         "clock"

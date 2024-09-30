@@ -20,6 +20,7 @@ return {
             {},
             vim.lsp.protocol.make_client_capabilities(),
             cmp_lsp.default_capabilities())
+
         require("fidget").setup({})
         require("mason").setup({
             ui = {
@@ -38,10 +39,9 @@ return {
                 "gopls",
                 "html",
                 "cssls",
-                "tailwindcss",
                 "jsonls",
                 "lua_ls",
-                "tsserver",
+                "ts_ls",
                 "pyright"
             },
             handlers = {
@@ -53,7 +53,7 @@ return {
                 zls = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.zls.setup({
-                        root_dir = lspconfig.util.root_pattern(".git", "build.zig", "zls.json"),
+                        root_dir = lspconfig.util.root_pattern(".git", "zls.json"),
                         settings = {
                             zls = {
                                 enable_inlay_hints = true,

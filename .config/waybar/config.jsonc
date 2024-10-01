@@ -19,7 +19,6 @@
         "power-profiles-daemon",
         "cpu",
         "memory",
-        "temperature",
         "backlight",
         "battery",
         "battery#bat2",

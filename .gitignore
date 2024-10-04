@@ -7,7 +7,7 @@
 .bash_history
 .config/discord/
 .config/go/
-.config/VSCodium/
-.config/BraveSoftware/
 .config/nvim/lazy-lock.json
 .config/nvim/lazyvim.json
+.config/chromium/
+.config/GIMP/

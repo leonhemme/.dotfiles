@@ -41,7 +41,6 @@ return {
                 "cssls",
                 "jsonls",
                 "lua_ls",
-                "ts_ls",
                 "pyright"
             },
             handlers = {

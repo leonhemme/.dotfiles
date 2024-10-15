@@ -11,10 +11,7 @@
         "custom/media",
         "mpd"
     ],
-    "modules-center": [
-        "clock#date",
-        "clock#time"
-    ],
+    "modules-center": [],
     "modules-right": [
         "tray",
         "pulseaudio",
@@ -23,7 +20,9 @@
         "memory",
         "backlight",
         "battery",
-        "battery#bat2"
+        "battery#bat2",
+        "clock#date",
+        "clock#time"
     ],
     "keyboard-state": {
         "numlock": true,

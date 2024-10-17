@@ -35,8 +35,6 @@ fi
 bind "set completion-ignore-case on"
 
 ### Environment variables ###
-export LC_TIME=de_DE.UTF-8
-export LC_NUMERIC=de_DE.UTF-8
 export LC_MONETARY=de_DE.UTF-8
 export LC_PAPER=de_DE.UTF-8
 export LC_MEASUREMENT=de_DE.UTF-8

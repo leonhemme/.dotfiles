@@ -113,8 +113,10 @@ alias brightness-high="sudo sh -c 'echo 255 > /sys/class/backlight/amdgpu_bl0/br
 alias brightness-medium="sudo sh -c 'echo 96 > /sys/class/backlight/amdgpu_bl0/brightness'"
 alias brightness-low="sudo sh -c 'echo 32 > /sys/class/backlight/amdgpu_bl0/brightness'"
 
-alias ls='eza -alh --color=always --group-directories-first'
-alias lstree='eza -aT --color=always --group-directories-first'
+alias ls='eza --group-directories-first'
+alias ll='eza -alh --group-directories-first'
+alias la='eza -ah --group-directories-first'
+alias lstree='eza -aT --group-directories-first'
 
 alias pac='sudo pacman'
 # Update only standard packages

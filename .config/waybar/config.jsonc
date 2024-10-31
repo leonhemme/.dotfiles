@@ -11,7 +11,9 @@
         "custom/media",
         "mpd"
     ],
-    "modules-center": [],
+    "modules-center": [
+        "hyprland/window"
+    ],
     "modules-right": [
         "tray",
         "pulseaudio",
@@ -33,6 +35,7 @@
             "unlocked": ""
         }
     },
+    "hyprland/window": {},
     "mpd": {
         "format": " {stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}%",
         "format-disconnected": " Disconnected",

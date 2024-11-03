@@ -74,7 +74,7 @@
         "spacing": 10
     },
     "clock#date": {
-        "format": "{:%A, %B %d, %Y}",
+        "format": "{:%a, %b %d}",
         "tooltip": true,
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
@@ -97,8 +97,9 @@
         }
     },
     "clock#time": {
-        "format": "{:%H:%M}",
-        "tooltip": false
+        "format": "{:%H:%M:%S}",
+        "tooltip": false,
+        "interval": 1
     },
     "cpu": {
         "format": " {usage} %",

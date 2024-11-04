@@ -8,11 +8,11 @@
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
-        "custom/media",
-        "mpd"
+        "hyprland/window"
     ],
     "modules-center": [
-        "hyprland/window"
+        "custom/media",
+        "mpd"
     ],
     "modules-right": [
         "tray",

@@ -97,7 +97,8 @@
         }
     },
     "clock#time": {
-        "format": "{:%H:%M:%S}",
+        "format": "{:%H:%M}",
+        "format-alt": "{:%H:%M:%S}",
         "tooltip": false,
         "interval": 1
     },

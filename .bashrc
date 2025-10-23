@@ -107,7 +107,7 @@ up() {
 
 ### Aliases ###
 # Dotfiles repo
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias config='/usr/bin/git -C $HOME/.dotfiles'
 
 # Adjust backlight brightness on laptop
 alias brightness-high="sudo sh -c 'echo 255 > /sys/class/backlight/amdgpu_bl0/brightness'"
